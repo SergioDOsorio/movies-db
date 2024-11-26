@@ -59,7 +59,7 @@
                 <label for="title">Título:</label>
                 <input type="text" id="title" name="title" required />
 
-                <label for="releaseYear">Fecha de estreno (aaaa-mm-dd):</label>
+                <label for="releaseYear">Fecha de estreno:</label>
                 <input type="date" id="releaseYear" name="releaseYear" required />
 
                 <label for="genre">Género:</label>
@@ -105,7 +105,7 @@
             };
 
             try {
-                const response = await fetch("http://localhost:3000/api/movies", { // Cambia la URL según tu API
+                const response = await fetch("https://movies-sapi-n4cgic.av6c76.usa-e1.cloudhub.io/api/Movies", { // Cambia la URL según tu API
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -114,7 +114,7 @@
                 });
 
                 const result = await response.json();
-                if (result.success) {
+                if (result) {
                     alert("Película agregada con éxito");
                     document.getElementById("movieForm").reset();
                 } else {
